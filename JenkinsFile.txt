@@ -35,10 +35,24 @@ pipeline {
             }
         }
 
-        stage("Run Tests") {
+        stage("Run Tests TestProject1") {
             //test
             steps {
-                bat 'dotnet test SeleniumBasicExercise.sln --logger "trx;LogFileName=TestResults.trx"'
+                bat 'dotnet test TestProject1/TestProject1.csproj --logger "trx;LogFileName=TestResults.trx"'
+            }
+        }
+
+        stage("Run Tests TestProject2") {
+            //test
+            steps {
+                bat 'dotnet test STestProject2/TestProject2.csproj --logger "trx;LogFileName=TestResults.trx"'
+            }
+        }
+
+        stage("Run Tests TestProject3") {
+            //test
+            steps {
+                bat 'dotnet test TestProject3/TestProject3.csproj --logger "trx;LogFileName=TestResults.trx"'
             }
         }
     }
